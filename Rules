@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hive Game</title>
+  <style>
+    /* Add your custom CSS styles here */
+    .piece {
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="board">
+    <!-- Add your HTML code for the game board here -->
+  </div>
+  
+  <div id="pieces">
+    <!-- Add your HTML code for the game pieces here -->
+    <img class="piece" id="queen-bee" src="queen-bee.png" alt="Queen Bee" draggable="true">
+    <img class="piece" id="beetle" src="beetle.png" alt="Beetle" draggable="true">
+    <img class="piece" id="grasshopper" src="grasshopper.png" alt="Grasshopper" draggable="true">
+    <img class="piece" id="spider" src="spider.png" alt="Spider" draggable="true">
+    <img class="piece" id="soldier-ant" src="soldier-ant.png" alt="Soldier Ant" draggable="true">
+  </div>
+  
+  <script>
+    // Define your game logic and move validation functions here
+    
+    // Example function to show move rules for a piece
+    function showMoveRules(pieceId) {
+      // Implement your logic to display move rules for the piece
+      
+      // Example: Get the move rules based on the piece ID
+      var moveRules = getMoveRules(pieceId);
+      
+      // Display the move rules in a suitable format (e.g., alert, modal, etc.)
+      alert(moveRules);
+    }
+    
+    // Example function to get move rules based on the piece ID
+    function getMoveRules(pieceId) {
+      // Implement your logic to retrieve the move rules for the piece
+      
+      // Example: Return the move rules based on the piece ID
+      if (pieceId === 'queen-bee') {
+        return 'The Queen Bee can only be moved one space per turn.';
+      } else if (pieceId === 'beetle') {
+        return 'The Beetle can only move one space per turn.';
+      } else if (pieceId === 'grasshopper') {
+        return 'The Grasshopper can jump in a straight line across the Hive.';
+      } else if (pieceId === 'spider') {
+        return 'The Spider is able to move three spaces.';
+      } else if (pieceId === 'soldier-ant') {
+        return 'The Soldier Ant can move as many spaces as the player wishes.';
+      }
+    }
+    
+    // Add event listeners to the piece images
+    var pieces = document.getElementsByClassName('piece');
+    for (var i = 0; i < pieces.length; i++) {
+      pieces[i].addEventListener('click', function() {
+        var pieceId = this.id;
+        showMoveRules(pieceId);
+      });
+    }
+  </script>
+</body>
+</html>
